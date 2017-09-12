@@ -8,6 +8,9 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <limits.h>
+
+#define INIT_ARRAY_WITH_DATA(pointer,index,length,value) for(index = 0 ; index < length ; ++index ){pointer[index]=value;}
 
 typedef struct Arc
 {
@@ -159,9 +162,19 @@ public:
         return false;
     }
     
-    void shortRoad()
+    void shortRoad(const int source)
     {
+        bool* finished = new bool[_countVertex];
+        int index, min;
+        INIT_ARRAY_WITH_DATA(finished,index,_countVertex,false);
         
+        
+        for(index = 0 ; index < _countVertex ; ++index)
+        {
+            min = INT_MAX;
+        }
+        
+        delete [] finished;
     }
     
     __Vertex* _vertex;
@@ -181,7 +194,7 @@ int main(int argc, const char * argv [])
     {
         scanf("%d", &citys[index].data);
     }
-    int city1, city2, length;
+    
     for(index = 0 ; index < numberOfRoad ; ++index)
     {
         scanf("%d %d %d", &roads[index].tail, &roads[index].head, &roads[index].info);
